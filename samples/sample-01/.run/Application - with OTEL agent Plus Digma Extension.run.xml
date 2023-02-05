@@ -1,0 +1,20 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Application - with OTEL agent + Digma Extension" type="Application" factoryName="Application">
+    <envs>
+      <env name="CODE_PACKAGE_PREFIXES" value="com.example" />
+      <env name="OTEL_SERVICE_NAME" value="KafkaSample01WIthAgent" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.example.Application" />
+    <module name="kafka-sample-01-with-otel-agent-n-digma" />
+    <option name="VM_PARAMETERS" value="-javaagent:target/otel/opentelemetry-javaagent.jar -Dotel.javaagent.extensions=target/otel/digma-otel-agent-extension.jar -Dotel.traces.exporter=otlp -Dotel.exporter.otlp.traces.endpoint=http://localhost:4317" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.example.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
