@@ -17,7 +17,7 @@ gradleEnterprise {
 	}
 }
 
-rootProject.name = 'spring-kafka-dist'
+rootProject.name = 'spring-kafka-dist-otel-agent-n-digma'
 
 include 'spring-kafka'
 include 'spring-kafka-bom'

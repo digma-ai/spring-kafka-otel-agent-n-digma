@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
-	<artifactId>kafka-sample-01</artifactId>
+	<artifactId>kafka-sample-01-with-otel-agent-n-digma</artifactId>
 	<version>3.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.1-SNAPSHOT</version>
+		<version>3.0.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
