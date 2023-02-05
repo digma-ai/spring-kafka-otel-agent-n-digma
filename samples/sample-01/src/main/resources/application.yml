@@ -1,3 +1,7 @@
+server:
+  port:
+    9864
+
 spring:
   kafka:
     producer:
