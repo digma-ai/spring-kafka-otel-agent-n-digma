@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Application - with OTEL agent + Digma Extension" type="Application" factoryName="Application">
+  <configuration default="false" name="Application - with OTEL agent Plus Digma Extension" type="Application" factoryName="Application">
     <envs>
       <env name="CODE_PACKAGE_PREFIXES" value="com.example" />
       <env name="OTEL_SERVICE_NAME" value="KafkaSample01WIthAgent" />
