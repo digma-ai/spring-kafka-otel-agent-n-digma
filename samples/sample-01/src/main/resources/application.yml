@@ -1,6 +1,8 @@
 spring:
   kafka:
     producer:
+      bootstrap-servers: localhost:9092
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     consumer:
+      bootstrap-servers: localhost:9092
       value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer

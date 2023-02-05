@@ -16,6 +16,7 @@
 
 package com.example;
 
+import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +29,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.core.KafkaAdmin;
 import org.springframework.kafka.core.KafkaOperations;
 import org.springframework.kafka.listener.CommonErrorHandler;
 import org.springframework.kafka.listener.DeadLetterPublishingRecoverer;
@@ -38,6 +40,9 @@ import org.springframework.util.backoff.FixedBackOff;
 
 import com.common.Foo2;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Sample shows use of a dead letter topic.
  *
@@ -47,6 +52,8 @@ import com.common.Foo2;
  */
 @SpringBootApplication
 public class Application {
+
+	private static final String BOOTSTRAP_SERVERS_VALUE = "localhost:9092";
 
 	private final Logger logger = LoggerFactory.getLogger(Application.class);
 
@@ -83,6 +90,13 @@ public class Application {
 	public void dltListen(byte[] in) {
 		logger.info("Received from DLT: " + new String(in));
 		this.exec.execute(() -> System.out.println("Hit Enter to terminate..."));
+	}
+
+	@Bean
+	public KafkaAdmin kafkaAdmin() {
+		Map<String, Object> configs = new HashMap<>();
+		configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS_VALUE);
+		return new KafkaAdmin(configs);
 	}
 
 	@Bean
