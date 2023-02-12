@@ -71,7 +71,7 @@
 							<goal>download-single</goal>
 						</goals>
 						<configuration>
-							<url>https://github.com/digma-ai/otel-java-instrumentation/releases/download/v0.5.32/digma-otel-agent-extension-0.5.32.jar</url>
+							<url>https://github.com/digma-ai/otel-java-instrumentation/releases/latest/download/digma-otel-agent-extension.jar</url>
 							<toFile>${project.build.directory}/otel/digma-otel-agent-extension.jar</toFile>
 						</configuration>
 					</execution>
