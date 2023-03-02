@@ -5344,7 +5344,7 @@ handler.setBackOffFunction((record, ex) -> { ... });
 If the function returns `null`, the handler's default `BackOff` will be used.
 
 Set `resetStateOnExceptionChange` to `true` and the retry sequence will be restarted (including the selection of a new `BackOff`, if so configured) if the exception type changes between failures.
-By default, the exception type is not considered.
+When `false` (the default before version 2.9), the exception type is not considered.
 
 Starting with version 2.9, this is now `true` by default.
 
