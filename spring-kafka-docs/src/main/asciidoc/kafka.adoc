@@ -2556,7 +2556,15 @@ See `monitorInterval`.
 
 |[[pollTimeout]]<<pollTimeout,`pollTimeout`>>
 |5000
-|The timeout passed into `Consumer.poll()`.
+|The timeout passed into `Consumer.poll()` in milliseconds.
+
+|[[pollTimeoutWhilePaused]]<<pollTimeoutWhilePaused,`pollTimeoutWhilePaused`>>
+|100
+|The timeout passed into `Consumer.poll()` (in milliseconds) when the container is in a paused state.
+
+|[[restartAfterAuthExceptions]]<<restartAfterAuthExceptions,`restartAfterAuthExceptions`>>
+|false
+|True to restart the container if it is stopped due to authorization/authentication exceptions.
 
 |[[scheduler]]<<scheduler,`scheduler`>>
 |`ThreadPoolTaskScheduler`
@@ -5473,10 +5481,10 @@ If you wish to use a different error handling strategy for record and batch list
 
 Refer to the javadocs in `CommonErrorHandler`.
 
-To replace an `ErrorHandler` or `ConsumerAwareErrorHandler` implementation, you should implement `handleRecord()` and leave `remainingRecords()` to return `false` (default).
+To replace an `ErrorHandler` or `ConsumerAwareErrorHandler` implementation, you should implement `handleOne()` and leave `seeksAfterHandle()` to return `false` (default).
 You should also implement `handleOtherException()` - to handle exceptions that occur outside the scope of record processing (e.g. consumer errors).
 
-To replace a `RemainingRecordsErrorHandler` implementation, you should implement `handleRemaining()`  and override `remainingRecords()` to return `true`.
+To replace a `RemainingRecordsErrorHandler` implementation, you should implement `handleRemaining()`  and override `seeksAfterHandle()` to return `true` (the error handler must perform the necessary seeks).
 You should also implement `handleOtherException()` - to handle exceptions that occur outside the scope of record processing (e.g. consumer errors).
 
 To replace any `BatchErrorHandler` implementation, you should implement `handleBatch()`
